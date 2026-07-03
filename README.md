@@ -4,7 +4,7 @@
 
 **中国发明专利全流程 Agent Skill**：创意可专利性审核、论文/技术说明转专利、技术交底书撰写与迭代、国知局查新、A4 DOCX 导出、升级完整申请书。
 
-本仓库根目录即 Skill 包，可被 **Claude Code、Cursor、Codex** 等工具直接导入。
+技能包位于 **`skills/patent-skills/`**，符合 [AgentSkills](https://agentskills.io) 与 **CC Switch** 等工具的仓库扫描约定，可被 **Claude Code、Cursor、Codex** 等直接导入。
 
 ## 功能
 
@@ -21,29 +21,27 @@
 
 ## 规范约束
 
-- 离线基线：`references/regulatory-standards.md`（专利法第 22/25/26 条、审查指南、国知局撰写提醒）
-- 联网核验：`prompts/standards_lookup.md`（review/draft/upgrade 前 WebSearch 权威来源）
+- 离线基线：`skills/patent-skills/references/regulatory-standards.md`（专利法第 22/25/26 条、审查指南、国知局撰写提醒）
+- 联网核验：`skills/patent-skills/prompts/standards_lookup.md`（review/draft/upgrade 前 WebSearch 权威来源）
 
 ## 快速安装
 
 详见 [INSTALL.md](./INSTALL.md)。
 
 ```bash
-# Claude Code（项目级）
-mkdir -p .claude/skills
-git clone <本仓库 URL> .claude/skills/patent-skills
+# Claude Code / Cursor（复制技能子目录）
+git clone <本仓库 URL> /tmp/patent-skills-repo
+cp -R /tmp/patent-skills-repo/skills/patent-skills ~/.claude/skills/patent-skills
 
-# Cursor（全局）
-mkdir -p ~/.cursor/skills
-git clone <本仓库 URL> ~/.cursor/skills/patent-skills
-
-# Codex
-cp -R patent-skills ~/.codex/skills/
+# CC Switch：仓库管理 → 添加仓库
+# Owner: yjmm10  Name: patent-skills  Branch: master
+# 刷新后即可发现 patent-skills 并一键安装
 ```
 
 ## 可选依赖
 
 ```bash
+cd skills/patent-skills
 pip install -r requirements.txt          # DOCX 导出
 pip install -r tools/requirements-cnipa.txt && python -m playwright install chromium  # 国知局查新
 ```
@@ -63,14 +61,18 @@ Codex：`$patent-skills` + 任务描述。
 ## 目录结构
 
 ```
-patent-skills/
-├── SKILL.md              # 主入口
-├── agents/openai.yaml    # Codex 接口
-├── prompts/              # 分模式指令
-├── references/           # 专利规范与检查清单
-├── assets/               # 默认交底书模板
-├── scripts/              # DOCX 渲染
-└── tools/                # 查新、格式转换
+patent-skills/                    # Git 仓库根
+├── README.md
+├── INSTALL.md
+└── skills/
+    └── patent-skills/            # 技能包（含 SKILL.md）
+        ├── SKILL.md              # 主入口
+        ├── agents/openai.yaml    # Codex 接口
+        ├── prompts/              # 分模式指令
+        ├── references/           # 专利规范与检查清单
+        ├── assets/               # 默认交底书模板
+        ├── scripts/              # DOCX 渲染
+        └── tools/                # 查新、格式转换
 ```
 
 ## 致谢与参考
