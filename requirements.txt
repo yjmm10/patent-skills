@@ -1,0 +1,7 @@
+# MD → DOCX（tools/md_to_docx.py、scripts/render_disclosure_docx.py）
+python-docx>=1.1.0
+# Word → MD（tools/docx_to_md.py）
+mammoth>=1.6.0
+
+# 国知局查新（独立安装，见 tools/requirements-cnipa.txt）：
+#   pip install -r tools/requirements-cnipa.txt && python -m playwright install chromium

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Patent Skills 专利全流程"
+  short_description: "创意审核、论文转专利、交底书撰写与查新、A4 DOCX 与完整申请书"
+  default_prompt: "Use $patent-skills to review patentability, convert my paper or technical description into a Chinese patent disclosure, run prior-art search, and export A4 DOCX when ready."
+
+policy:
+  allow_implicit_invocation: true
