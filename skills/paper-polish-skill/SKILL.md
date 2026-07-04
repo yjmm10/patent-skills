@@ -2,7 +2,7 @@
 name: paper-polish-skill
 description: >-
   工程类学术论文润色：顶刊框架、实验章3-5小节、三级过渡、代码/实现细节抽象化（路径/函数名/库版本→公式与伪代码）。用户提到论文去代码化、实现细节太多、file path in paper、把代码改成数学描述、伪代码、附录分流时均应使用本技能。
-version: "1.4.0"
+version: "1.4.1"
 user-invocable: true
 argument-hint: "[可选：论文章节或文件路径，如 abstract / introduction / 全文]"
 allowed-tools: Read, Write, Edit, Grep, Glob, WebSearch, Bash
@@ -20,8 +20,11 @@ allowed-tools: Read, Write, Edit, Grep, Glob, WebSearch, Bash
 |------|----------|
 | 从零写论文、文献检索、完整 12-agent 流水线 | `academic-paper` |
 | **已有初稿，优化表达、结构、说服力** | **本技能** |
+| **UAV 实验 runs、存档、重评估、fig→Section V 数据** | **`project-uav-skill`** |
 | 审稿意见回复、rebuttal | `academic-paper`（revision-coach 模式） |
 | 结构化 peer review 打分 | `academic-paper-reviewer` |
+
+**协作**：`project-uav-skill` 的 `paper_bridge` 产出 section5 草稿与数字溯源 → 本 skill 的 `experiment` / `code_abstraction` 模式润色。
 
 ---
 

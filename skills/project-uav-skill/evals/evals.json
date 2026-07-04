@@ -1,0 +1,23 @@
+{
+  "skill_name": "project-uav-skill",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我要开 runs_v1.3 新批次，5 臂 QMIX 对照 SATCPP 和 UAR，请帮我设计 arm 表和 CHANGELOG 条目。",
+      "expected_output": "batch_design：arm 对照表、CHANGELOG 三问、runs_v1.3 命名与脚本要点",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "审计 uav-example/runs_v1.2/qmix_satcpp_uar 的 LATEST run，看能否不重训重评估、是否缺 eval_suite。",
+      "expected_output": "archive_audit：必存档清单、等级 A/B/C/F、修复建议",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "runs_v1.2 已跑完，请从 metrics 出 fig 并起草 section5，准备交给 paper-polish 润色。",
+      "expected_output": "paper_bridge：fig 路径、section5 四节草稿、交接包、数字溯源表",
+      "files": []
+    }
+  ]
+}
