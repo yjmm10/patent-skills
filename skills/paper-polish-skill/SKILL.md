@@ -2,7 +2,7 @@
 name: paper-polish-skill
 description: >-
   工程类学术论文润色：顶刊框架、实验章3-5小节、三级过渡、代码/实现细节抽象化（路径/函数名/库版本→公式与伪代码）。用户提到论文去代码化、实现细节太多、file path in paper、把代码改成数学描述、伪代码、附录分流时均应使用本技能。
-version: "1.3.0"
+version: "1.4.0"
 user-invocable: true
 argument-hint: "[可选：论文章节或文件路径，如 abstract / introduction / 全文]"
 allowed-tools: Read, Write, Edit, Grep, Glob, WebSearch, Bash
@@ -144,3 +144,38 @@ allowed-tools: Read, Write, Edit, Grep, Glob, WebSearch, Bash
 | 迭代 | `prompts/iteration.md` | 基于上轮结果的增量修改 |
 
 **禁止**：在交付正文中包含「自检清单」全文；自检仅内部使用。
+
+---
+
+## 版本管理
+
+**当前版本**：见 frontmatter `version` 与 **`CHANGELOG.md`** 最新条目。
+
+每次修改本 skill（`SKILL.md`、`prompts/`、`references/`、`evals/`）**必须**：
+
+1. **递增版本号**（`SKILL.md` frontmatter `version`）
+2. **写入 `CHANGELOG.md`**：新版本号、日期、`Added` / `Changed` / `Fixed` / `Removed` 摘要
+3. **向用户说明**：回复中注明「paper-polish-skill vX.Y.Z」及本次变更要点
+
+### 版本号规则
+
+|  bump  | 场景 |
+|--------|------|
+| PATCH (+0.0.1) | 措辞修正、typo、检查项微调 |
+| MINOR (+0.1.0) | 新 reference / 新模式 / 新 prompt / 显著能力扩展 |
+| MAJOR (+1.0.0) |  breaking：删除或重命名模式、重构主流程 |
+
+### Changelog 条目模板
+
+```markdown
+## [X.Y.Z] — YYYY-MM-DD
+
+### Added
+- ...
+
+### Changed
+- ...
+
+### Fixed
+- ...
+```
