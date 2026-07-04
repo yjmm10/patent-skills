@@ -1,6 +1,6 @@
 # Step 4: Self Check — 交付前内部自检
 
-**Read** `references/final-checklist.md`、`references/writing-principles.md`。
+**Read** `references/final-checklist.md`、`references/writing-principles.md`、`references/code-abstraction.md`（若改过 Method/Evaluation）；过渡密集章节对照 `section-transitions.md`。
 
 ## 目标
 
@@ -9,10 +9,12 @@
 ## 自检步骤
 
 1. **一致性**：摘要/结论/实验中的数值是否一致；缩写首次全称
-2. **结构**：各章是否仍符合 chapter-guidelines 骨架
-3. **主张-证据**：每个 "outperform"/"achieve" 是否有 Fig./Table 或 `[需作者补充]`
-4. **反模式**：删除/In recent years 套话、无支撑 novel
-5. **Change Log 完整**：每改过的章在表中有一行
+2. **结构**：各章是否仍符合 chapter-guidelines 骨架；**子节边界无断崖**
+3. **过渡**：战略/战术/操作三级（section-transitions）
+4. **代码抽象**：正文无路径/函数名/库版本（code-abstraction 清单）
+5. **主张-证据**：每个 "outperform"/"achieve" 是否有 Fig./Table 或 `[需作者补充]`
+6. **反模式**：套话、无支撑 novel、代码文档化
+7. **Change Log 完整**：每改过的章在表中有一行
 
 ## 发现问题时
 

@@ -1,6 +1,19 @@
 # 图表规范与实验设计
 
-## 图类型与功能对应
+> **实验章小节划分**（3/4/5 节标准、各节篇幅、决策指南、常见错误）→ **`Read`** `experiment-section-structure.md`。本文档侧重图表样式、Table I、baseline 与六维**内容**要点。
+
+## 图类型与小节对应（4 节标准版）
+
+| 图号 | 类型 | 功能 | 典型小节 |
+|------|------|------|----------|
+| Fig.1 | 系统架构图 | 场景认知 | System Model（非实验章） |
+| Fig.2 | 算法架构图 | 方法核心 | Method |
+| Table I | 仿真参数 | 可复现设置 | **V-A Setup** |
+| Fig.4 | 收敛曲线 | 训练稳定性 | **V-B Convergence** |
+| Fig.5 | 性能对比 | 主结果 | **V-C Performance** |
+| Fig.6+ | 消融/扩展/轨迹 | 深入分析 | **V-D Ablation** 或 **V-E Case** |
+
+## 图类型与功能对应（全稿）
 
 | 图号 | 类型 | 功能 | 出现位置 |
 |------|------|------|----------|
@@ -69,10 +82,10 @@
 
 ### 环境细节（正文或脚注）
 
-- 仿真：PyTorch 版本 + Python 版本
-- 硬件：GPU 型号、内存
+- 仿真：**方法论表述**（"deep RL framework with PyTorch backend"），**非** `torch==1.12.0`
+- 硬件：GPU 型号、内存（Table I 或 Setup 一句）
 - 随机种子：如 50 runs with different seeds
-- 代码：GitHub 链接（可选）
+- 代码：脚注/致谢 `[URL]`；配置细节 → Appendix（见 `code-abstraction.md`）
 
 ---
 
@@ -99,30 +112,32 @@
 
 ---
 
-## 六维验证结构（Evaluation 章节润色顺序）
+## 六维验证内容（按 4 节标准版映射）
 
-### 维度 1：收敛性
+润色时先确定小节划分（见 `experiment-section-structure.md`），再确保六维**内容**覆盖：
+
+### 维度 1：收敛性 → V-B
 
 - 多算法同环境收敛曲线
 - 指标：收敛速度、最终性能
 - 本文方法红色实线 + 置信区间
 
-### 维度 2：性能对比
+### 维度 2：性能对比 → V-C
 
 - 3–5 baselines；4–5 指标
 - 案例句：KMAPPO achieves 23.6% lower AoI and 18.7% higher throughput than MAPPO...
 
-### 维度 3：规模扩展性
+### 维度 3：规模扩展性 → V-C 子段或 V-D（5 节版）
 
 - UAV 数量、用户密度扫描
 - 关键句：scales linearly ... while PSO degrades quadratically
 
-### 维度 4：参数敏感性
+### 维度 4：参数敏感性 → V-B 简要或 V-D（5 节版）
 
 - 学习率、折扣因子、clip；或环境参数（能见度等）
 - 可用热力图展示二维参数
 
-### 维度 5：消融实验
+### 维度 5：消融实验 → V-C（3 节版）或 V-D（4/5 节版）
 
 Table V 模板：
 
@@ -134,7 +149,7 @@ Table V 模板：
 
 Key Insight 一句总结各组件贡献。
 
-### 维度 6：场景适应性
+### 维度 6：场景适应性 → V-C 多场景或 V-E（5 节版）
 
 - 3+ 场景（城市/郊区/海上/灾害）
 - 极端条件；轨迹可视化

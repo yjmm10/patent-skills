@@ -142,6 +142,8 @@ The main contributions of this article are summarized as follows:
 ### 润色要点
 
 - Fig.1 仅为场景图，无算法细节
+- **Section II → II-A 等边界**：按 `section-transitions.md` 补战略级过渡（分解式/问题驱动）
+- **II-A → II-B**：战术级因果或并列过渡（mobility → channel）
 - 每个符号首次出现定义（where θ is ...）
 - 优化问题标注复杂度
 - 可选：Table of Notations；3–5 条假设列表
@@ -169,29 +171,37 @@ r_t = α·R_coverage + β·R_energy + γ·R_smooth
 
 ### 伪代码要求
 
-- Algorithm 1 标题
-- Input / Output
-- 关键步骤含探索、存储、更新
+- Algorithm 1 标题；Input / Output；关键步骤含探索、存储、更新
+- **禁止** Python/`def`/文件路径；见 `code-abstraction.md` 策略 3
+
+### 代码痕迹抽象化（Method 章必查）
+
+- 类/Agent → 状态空间与动力学公式（策略 2）
+- 函数/脚本 → 数学操作或 Algorithm 1（策略 1、3）
+- 保留 α、β、episode 数等科学参数；删除 `reward.py`、`line 42` 等工程指称
 
 ---
 
-## 性能评估 — 3–4 页
+## 性能评估 — 3–4 页（全文 25–30%）
 
-**六维验证法**（详见 `figure-and-experiment.md`）：
+**小节结构（3–5 节）**：润色前 **`Read`** `references/experiment-section-structure.md`。
 
-1. 收敛性分析
-2. 性能对比（3–5 baselines，4–5 指标）
-3. 规模扩展性
-4. 参数敏感性
-5. 消融实验
-6. 场景适应性
+| 版式 | 页数 | 小节 |
+|------|------|------|
+| 3 节精简 | 10–12 页 | A Setup+Baselines → B Performance+Convergence → C Ablation+Discussion |
+| **4 节标准（默认推荐）** | 12–15 页 | A Setup → B Convergence → C Performance → D Ablation+Insights |
+| 5 节全面 | 15+ 页 | A Environment → B Convergence → C Performance → D Scalability+Sensitivity → E Case Studies |
+
+**逻辑顺序**：设置 → 训练过程 → 最终性能 → 深入分析（禁止先结果后设置）。
+
+**内容六维**（映射到小节，见 experiment-section-structure.md）：收敛、性能对比、规模扩展、参数敏感、消融、场景适应。
 
 ### 润色要点
 
-- 每个主张对应 Fig./Table 编号
-- 量化对比（23.6% lower AoI）
-- Table III 仿真参数表
-- 消融证明各组件必要性
+- 根据创新点复杂度**推荐 3/4/5 节划分**；每小节 300–400 词，末句过渡下节
+- 每小节 ≥1 核心图/表；全章 5–8 图
+- 每个主张对应 Fig./Table；量化对比（23.6% lower AoI）
+- Table I 仿真参数（Setup 节）；消融独立成节（4/5 节版为 D）
 
 ---
 

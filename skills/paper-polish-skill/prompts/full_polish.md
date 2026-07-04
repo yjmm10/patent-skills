@@ -1,6 +1,6 @@
 # Step 3a: Full Polish — 全文逐章润色
 
-**Read** `references/chapter-guidelines.md`、`references/writing-principles.md`；实验章额外 **Read** `references/figure-and-experiment.md`；需要句式时 **Read** `references/sentence-templates.md`。
+**Read** `references/chapter-guidelines.md`、`references/writing-principles.md`、**`references/section-transitions.md`**、**`references/code-abstraction.md`**（Method/Evaluation）；实验章 **Read** `experiment-section-structure.md` + `figure-and-experiment.md`；句式 **Read** `sentence-templates.md`。
 
 ## 润色顺序（按 ROI 排序）
 
@@ -11,8 +11,8 @@
 3. **Introduction**（五段式 + 贡献列表）
 4. **Related Work**（三步法）
 5. **System Model**（四层 + 符号定义）
-6. **Proposed Method**（四步 + 伪代码/Reward）
-7. **Performance Evaluation**（六维 + caption 建议）
+6. **Proposed Method**（四步 + 伪代码/Reward；**应用 code-abstraction 策略 1–3**）
+7. **Performance Evaluation**（3/4/5 小节；**策略 4–5** 处理实验脚本与技术栈表述）
 8. **Conclusion**（三段式）
 
 References 仅做格式/一致性提示，不重写文献内容。
@@ -22,8 +22,10 @@ References 仅做格式/一致性提示，不重写文献内容。
 ```
 1. 对照 chapter-guidelines 该节「检查清单」
 2. 保留技术含义，调整结构与句式
-3. 补过渡句、量化表述、Fig./Table 引用
-4. 记录变更到 Change Log
+3. 检查 Section→Subsection 边界：按 section-transitions 补战略/战术/操作过渡
+4. 补量化表述、Fig./Table 引用；实验小节末过渡句见 experiment-section-structure
+5. Method/Evaluation：扫描并抽象化代码痕迹（code-abstraction 五层策略）
+6. 记录变更到 Change Log
 ```
 
 ## 标注规则

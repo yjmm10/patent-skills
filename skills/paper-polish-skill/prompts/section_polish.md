@@ -1,6 +1,6 @@
 # Step 3b: Section Polish — 单章节润色
 
-**Read** `references/chapter-guidelines.md` 对应节；实验/图表 **Read** `references/figure-and-experiment.md`。
+**Read** `references/chapter-guidelines.md` 对应节；实验/图表 **Read** `references/experiment-section-structure.md` + `references/figure-and-experiment.md`。
 
 ## 章节 → 规范映射
 
@@ -12,9 +12,10 @@
 | related work, 相关工作 | 三步法 |
 | system model, 模型, formulation | 四层递进 |
 | method, proposed, 方法 | 四步结构 |
-| experiment, evaluation, 实验 | 六维 + figure-and-experiment |
+| experiment, evaluation, 实验 | **3–5 小节结构** + 六维内容 + figure-and-experiment |
 | conclusion, 结论 | 三段式 |
-| caption, 图题 | figure-and-experiment 自解释原则 |
+| transition, 过渡, 衔接 | transitions 模式 |
+| code, 代码, 路径, 函数名, 去代码化 | **code_abstraction** 模式 |
 
 未指定时询问一章名称。
 
@@ -30,11 +31,23 @@
 
 ## 特殊：experiment 模式
 
-除正文外，可选输出：
+**必读** `experiment-section-structure.md`。
 
-- 建议的 Table I 参数表（Markdown）
-- 图题改写列表
-- 缺失的六维中哪几维未覆盖
+1. **结构评估**：根据全文页数与创新点，推荐 3/4/5 节版；若当前划分不合规，输出「实验章结构建议表」与建议目录
+2. **逐小节润色**（4 节标准版默认）：A Setup → B Convergence → C Performance → D Ablation；每节 300–400 词，**末句 1 条过渡**
+3. **内容覆盖**：对照六维映射，标注缺失维度（规模/敏感/场景等）
+4. **附加输出**（按需）：
+   - Table I 参数表（Markdown）
+   - 图题改写列表（自解释 + 含结论）
+   - 顶刊自检三问（结构合理时可省略）
+
+## 特殊：code_abstraction 模式
+
+改读 **`prompts/code_abstraction_polish.md`**，不执行本节单章流程。
+
+## 特殊：transitions 模式
+
+改读 **`prompts/transitions_polish.md`**，不执行本节单章流程。
 
 ## 输出示例
 

@@ -1,8 +1,8 @@
 ---
 name: paper-polish-skill
 description: >-
-  工程类学术论文润色与表达优化：基于顶刊论文拆解的写作框架，按章节（标题/摘要/引言/相关工作/系统模型/方法/实验/结论）结构化润色现有初稿，强化逻辑连贯、数据说服力与图表自解释性。特别适配 MARL、UAV 网络优化、边缘计算等方向，框架通用。用户提到润色论文、改进表达、优化摘要引言、工程论文写作规范、顶刊写作框架、论文检查清单、图表规范、实验章节润色时均应使用本技能。区别于 academic-paper（从零撰写全流程），本技能专注已有稿件的表达层优化。
-version: "1.0.0"
+  工程类学术论文润色：顶刊框架、实验章3-5小节、三级过渡、代码/实现细节抽象化（路径/函数名/库版本→公式与伪代码）。用户提到论文去代码化、实现细节太多、file path in paper、把代码改成数学描述、伪代码、附录分流时均应使用本技能。
+version: "1.3.0"
 user-invocable: true
 argument-hint: "[可选：论文章节或文件路径，如 abstract / introduction / 全文]"
 allowed-tools: Read, Write, Edit, Grep, Glob, WebSearch, Bash
@@ -27,7 +27,7 @@ allowed-tools: Read, Write, Edit, Grep, Glob, WebSearch, Bash
 
 ## 触发条件
 
-- 明确提及：润色论文、改进论文表达、优化摘要/引言、论文写作规范、顶刊写作框架、论文检查清单
+- 明确提及：润色论文、章节过渡、**代码抽象化**、去代码化、实现细节、file path、函数名进正文
 - 英文：polish paper, improve academic writing, revise abstract/introduction, engineering paper structure
 - 斜杠指令：`/paper-polish`、`/润色论文`
 - **迭代模式**：用户在上轮润色结果上继续改（改某段、加强数据、统一术语等）→ **`Read`** `prompts/iteration.md`，**不**默认重跑全文诊断
@@ -46,7 +46,9 @@ allowed-tools: Read, Write, Edit, Grep, Glob, WebSearch, Bash
 | `section` | 单章节润色 | `intake.md` → `section_polish.md` → `self_check.md` |
 | `diagnose` | 只出诊断报告，不改文 | `intake.md` → `diagnose.md` |
 | `front` | 标题 + 摘要 + 关键词 | `intake.md` → `section_polish.md`（限定 Title/Abstract） |
-| `experiment` | 实验章节 + 图表说明/ caption | `intake.md` → `section_polish.md`（Evaluation）+ `references/figure-and-experiment.md` |
+| `experiment` | 实验章 3–5 小节 + 图表 caption | `section_polish.md` + `experiment-section-structure.md` + `figure-and-experiment.md` |
+| `transitions` | 章/子节过渡专项 | `transitions_polish.md` + `section-transitions.md` |
+| `code_abstraction` | 代码/路径/库版本 → 理论表达 | `code_abstraction_polish.md` + `code-abstraction.md` |
 
 ---
 
@@ -99,9 +101,12 @@ allowed-tools: Read, Write, Edit, Grep, Glob, WebSearch, Bash
 | 文件 | 何时 Read |
 |------|-----------|
 | `references/chapter-guidelines.md` | 润色任一正文章节前 |
-| `references/figure-and-experiment.md` | 润色 Evaluation、图题、表题、实验设计描述 |
-| `references/writing-principles.md` | 全文逻辑衔接、公式与术语统一 |
-| `references/sentence-templates.md` | 需要改写问题陈述、贡献声明、局限/未来工作 |
+| **`references/experiment-section-structure.md`** | **润色/诊断实验章；决定 3/4/5 节划分与各小节内容** |
+| `references/figure-and-experiment.md` | 图表样式、Table I、baseline、六维内容映射 |
+| `references/writing-principles.md` | 段落衔接、公式与术语；宏观章际一句式 |
+| **`references/section-transitions.md`** | **战略/战术/操作三级过渡；模板、案例、断崖修正** |
+| `references/sentence-templates.md` | 贡献、实验、结论句式；过渡详见 section-transitions |
+| **`references/code-abstraction.md`** | **五层抽象策略；路径/函数/技术栈规避；Method/Evaluation 去代码化** |
 | `references/final-checklist.md` | diagnose 与 self_check 阶段 |
 
 ---
@@ -110,10 +115,12 @@ allowed-tools: Read, Write, Edit, Grep, Glob, WebSearch, Bash
 
 1. **保真创新**：不改变技术贡献含义；只优化表达、结构与说服力。
 2. **数据驱动**：把模糊词（"significant improvement"）替换为可量化表述；无数据则标注待补。
-3. **结构优先于辞藻**：先对齐章节骨架（倒金字塔引言、五句摘要、六维实验等），再修句法。
+3. **结构优先于辞藻**：先对齐章节骨架（倒金字塔引言、五句摘要、实验章 3–5 小节等），再修句法。
 4. **术语一致**：全文统一缩写（首次全称）；不混用 UAV/drone 等同义词。
-5. **图表自解释**：图题含关键结论；正文不重复图题全部内容，但要点名 Fig.X 支撑的主张。
-6. **尊重期刊体例**：IEEE/Elsevier 等格式细节以用户指定模板为准；本技能不强制改 LaTeX 宏包。
+5. **图表自解释**：图题含关键结论；正文点名 Fig.X 支撑的主张。
+6. **过渡如神经系统**：见 `section-transitions.md`。
+7. **代码抽象化**：正文写贡献不写仓库；路径/函数名/库版本 → 公式、伪代码、评估协议（见 `code-abstraction.md`）。
+8. **尊重期刊体例**：IEEE/Elsevier 等以用户指定模板为准。
 
 ---
 
@@ -131,6 +138,8 @@ allowed-tools: Read, Write, Edit, Grep, Glob, WebSearch, Bash
 | Step 2 | `prompts/diagnose.md` | 全文结构诊断 |
 | Step 3a | `prompts/full_polish.md` | 全文逐章润色顺序与输出要求 |
 | Step 3b | `prompts/section_polish.md` | 单章节润色 |
+| Step 3c | `prompts/transitions_polish.md` | 章节过渡专项 |
+| Step 3d | `prompts/code_abstraction_polish.md` | 代码与实现细节抽象化 |
 | Step 4 | `prompts/self_check.md` | 交付前内部自检 |
 | 迭代 | `prompts/iteration.md` | 基于上轮结果的增量修改 |
 

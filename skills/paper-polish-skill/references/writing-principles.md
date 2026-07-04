@@ -13,6 +13,8 @@
 - 章末预告：`Having established the system model, we now present our solution...`
 - 章首回顾：`Based on the problem formulation in Section III, we propose...`
 
+**子节级过渡**（战略 / 战术 / 操作三级、模板、案例、断崖修正）→ **`Read`** `section-transitions.md`。full 润色时在每章内 Section→Subsection 边界检查并补过渡。
+
 润色时：若段间跳跃，补 1 句过渡；若重复，删冗余保留一处。
 
 ---
@@ -66,6 +68,7 @@
 - 对称废话段：每段长度完全一致、句式单一
 - 过度破折号与 em dash
 - 摘要/结论重复同一组数字超过两次
+- **代码文档化**：正文出现文件路径、函数名、库版本、内联 Python（见 `code-abstraction.md`）
 
 ---
 

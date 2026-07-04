@@ -132,6 +132,95 @@ Based on the problem formulation in Section III, we propose [方法名] in this 
 
 ---
 
+## 章节过渡（详见 section-transitions.md）
+
+战略/战术/操作模板与案例见 **`references/section-transitions.md`**。以下为速查：
+
+### 战略级（§ → §-A，约 3 句）
+
+```
+Having established the overall [系统] in Section [X], we now decompose...
+Specifically, Section [X-A] details [子模块]...
+This decomposition is essential because...
+```
+
+### 战术级（§-A → §-B，2–3 句）
+
+```
+The [主题] in Section [X-A] establishes...
+However, ... alone is insufficient...
+Therefore, Section [X-B] develops...
+```
+
+### 操作级（§-A → §-A1，1–2 句）
+
+```
+The [主题] comprises [N] components: ...
+We begin with Section [X-A1], as it defines...
+```
+
+---
+
+## 实验小节过渡（Section V 各节末句）
+
+```
+The baseline configurations and hyperparameters are summarized in Table I. In the following, we first examine the training convergence behavior.
+```
+
+```
+These results confirm that [方法] converges faster and more stably than baselines, motivating the performance comparison under fully trained policies in the next subsection.
+```
+
+```
+Having validated overall performance, we next isolate the contribution of each proposed component via ablation experiments.
+```
+
+```
+In summary, the ablation results corroborate that [核心组件] is indispensable for [目标指标], while [次要组件] mainly affects [次要指标].
+```
+
+---
+
+## 代码抽象化（详见 code-abstraction.md）
+
+### 实现 / 训练框架（策略 5）
+
+```
+Implementation: Our framework is implemented using deep reinforcement learning libraries 
+with [PyTorch/TensorFlow] backend. Multi-agent coordination employs [CTDE/parameter sharing]. 
+Training was conducted on [GPU description]. Hyperparameters were tuned via [grid search/Bayesian optimization].
+```
+
+### 评估协议（策略 4）
+
+```
+Evaluation Protocol: We evaluate under [N] random seeds. Agents are trained for [M] episodes 
+and tested over [K] episodes in unseen scenarios. Key metrics include [数学定义]. 
+95% confidence intervals use Student's t-distribution. Implementation details are in Appendix [X]; 
+code is available at [URL].
+```
+
+### 奖励 / 观测（策略 1）
+
+```
+The composite reward balances [objectives]: r_t = α·R_cov(·) − β·R_eng(·) + γ·R_smooth(·), 
+where α, β, γ are tuned via grid search.
+```
+
+```
+Raw observations undergo standardization: o = [(p − μ_p)/σ_p, OneHot(u_status)], 
+where μ_p, σ_p are estimated from [N] random samples.
+```
+
+### 可复现性脚注（非正文）
+
+```
+Implementation details and hyperparameters are provided in Appendix [A/B]. 
+Source code is available at [anonymized URL] for reproducibility.
+```
+
+---
+
 ## 图题（Caption）模板
 
 ```

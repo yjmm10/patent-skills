@@ -9,14 +9,32 @@
     },
     {
       "id": 2,
-      "prompt": "请诊断我这篇 12 页 IEEE 风格论文的全文结构问题，先不要改正文。实验部分只有性能对比，没有消融。",
-      "expected_output": "diagnose 模式诊断报告：检查清单得分、P0/P1 问题列表、明确指出缺失消融维度与六维实验缺口",
+      "prompt": "请诊断我这篇 12 页 IEEE 风格论文的全文结构问题，先不要改正文。实验部分只有 2 个小节，把设置和性能对比混在一起，也没有消融。",
+      "expected_output": "diagnose 模式：推荐 4 节标准版；P1b 实验章结构；P1d 若含代码则列出",
       "files": []
     },
     {
       "id": 3,
-      "prompt": "帮我润色 Performance Evaluation 章节：把 Fig.4-Fig.6 的正文描述改得更数据驱动，并给出改进后的 figure caption 建议。",
-      "expected_output": "experiment 模式：量化句式改写、六维对照说明缺哪几维、图题含结论的自解释 caption 建议表",
+      "prompt": "帮我润色 Performance Evaluation：按 4 节标准版重组，并润色 Fig.4-Fig.6 正文与 caption。",
+      "expected_output": "experiment 模式：四小节+过渡句；无 configs/ 路径；评估协议数学化",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "15 页 MECOS 类双算法系统论文，实验部分该怎么分小节？请给 5 节全面版目录。",
+      "expected_output": "5 节版目录 A–E；各节内容要点",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Section II 到 II-A 断崖过渡，II-A 到 II-B 缺衔接。请补英文过渡段。",
+      "expected_output": "transitions 模式：战略+战术过渡；过渡改进摘要表",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Method 章里写了 train_kmapppo()、uav_controller.py、configs/disaster.yaml 和 torch 1.12，请去代码化改成顶刊写法。",
+      "expected_output": "code_abstraction 模式：Algorithm 1/数学描述替代函数名；路径删除；技术栈方法论化；代码抽象改进摘要表；建议 Appendix",
       "files": []
     }
   ]
