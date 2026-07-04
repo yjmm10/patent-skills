@@ -1,0 +1,23 @@
+{
+  "skill_name": "paper-polish-skill",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我有一篇 UAV+MARL 轨迹优化的英文初稿，摘要和引言写得比较散，请按顶刊框架帮我润色 Abstract 和 Introduction。摘要目前没有具体数字。",
+      "expected_output": "Abstract 重构为五句公式并标注需补充数值处；Introduction 改为五段式并输出 3-4 条编号贡献；附变更摘要与章节检查清单",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "请诊断我这篇 12 页 IEEE 风格论文的全文结构问题，先不要改正文。实验部分只有性能对比，没有消融。",
+      "expected_output": "diagnose 模式诊断报告：检查清单得分、P0/P1 问题列表、明确指出缺失消融维度与六维实验缺口",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "帮我润色 Performance Evaluation 章节：把 Fig.4-Fig.6 的正文描述改得更数据驱动，并给出改进后的 figure caption 建议。",
+      "expected_output": "experiment 模式：量化句式改写、六维对照说明缺哪几维、图题含结论的自解释 caption 建议表",
+      "files": []
+    }
+  ]
+}
